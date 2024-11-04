@@ -13,19 +13,7 @@ jobs:
           python-version: "3.9"
       - name: Install packages
         run: pip install -r requirements.txt
+      - name: Run git bisect
+        run: python myscript.py
       - name: Run tests
         run: python manage.py test
-  bisect:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.9"     
-      - name: Run git bisect
-        run: |
-          python myscript.py
