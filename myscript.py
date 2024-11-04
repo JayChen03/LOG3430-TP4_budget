@@ -5,7 +5,7 @@ good_commit = "e4cfc6f77ebbe2e23550ddab682316ab4ce1c03c"
 
 def main():
     os.system(f"git bisect start {bad_commit} {good_commit}")
-    os.system("git bisect run pytest")
+    os.system("git bisect run pyton manage.py test")
     os.system("git bisect reset")
 
 if __name__ == "__main__":
